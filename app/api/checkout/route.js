@@ -18,8 +18,8 @@ export async function POST(request) {
         })
 
         const session = await stripe.checkout.sessions.create({
-            success_url: 'http://localhost:3000/success/',
-            cancel_url: 'http://localhost:3000/cancel',
+            success_url: 'https://brokbaits-nextjs.vercel.app/success/',
+            cancel_url: 'https://brokbaits-nextjs.vercel.app/cancel',
             submit_type: 'pay',
             mode: 'payment',
             payment_method_types: ['card'],
