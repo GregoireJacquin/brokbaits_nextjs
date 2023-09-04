@@ -31,7 +31,7 @@ export async function POST(request) {
                 allowed_countries: ['FR'],
             },
             line_items: body.cartItems.map((item) => {                
-                const img = item.image[0].asset._ref;
+                const img = item.imageSelected.asset._ref;
                 const newImage = img.replace('image-', 'https://cdn.sanity.io/images/xsu91yf1/production/').replace('-png', '.png');            
                 return {
                     price_data: {
@@ -39,6 +39,7 @@ export async function POST(request) {
                         product_data: {
                             name: item.name,
                             images: [newImage],
+                            description: item.colorSelected
                         },
                         unit_amount: formatAmountForStripe(item.price,'eur'),
                     },

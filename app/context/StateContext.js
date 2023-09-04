@@ -14,52 +14,53 @@ export const StateContext = ({ children }) => {
   let foundProduct;
   let index;
 
-  const onAdd = (product, quantity) => {
-    const checkProductInCart = cartItems.find((item) => item._id === product._id);
-    
+  const onAdd = (product, quantity, index) => {
+    const checkProductInCart = cartItems.find((item) => item._id === product._id && item.colorSelected === product.color[index]);
+
     setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
-    
-    if(checkProductInCart) {
-      const updatedCartItems = cartItems.map((cartProduct) => {
-        if(cartProduct._id === product._id) return {
-          ...cartProduct,
-          quantity: cartProduct.quantity + quantity
-        }
-      })
 
-      setCartItems(updatedCartItems);
+    if (checkProductInCart) {
+      const indexItem = cartItems.findIndex((cartProduct) => cartProduct._id === product._id && cartProduct.colorSelected === product.color[index])
+      const cartProduct = cartItems[indexItem]
+      cartItems[indexItem] = {
+        ...product,
+        quantity: cartProduct.quantity + quantity,
+        colorSelected: product.colorSelected = product.color[index],
+        imageSelected: product.image[index]
+      }
     } else {
       product.quantity = quantity;
-      
+      product.colorSelected = product.color[index];
+      product.imageSelected = product.image[index];
       setCartItems([...cartItems, { ...product }]);
     }
 
     toast.success(`${qty} ${product.title} ajouté au panier`);
-  } 
+  }
 
   const onRemove = (product) => {
-    foundProduct = cartItems.find((item) => item._id === product._id);
-    const newCartItems = cartItems.filter((item) => item._id !== product._id);
+    foundProduct = cartItems.find((item) => item._id === product._id && item.colorSelected === product.colorSelected);
+    const newCartItems = cartItems.filter((item) => item._id === product._id && item.colorSelected !== product.colorSelected);
 
     setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity);
     setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct.quantity);
     setCartItems(newCartItems);
   }
 
-  const toggleCartItemQuanitity = (id, value) => {
-    foundProduct = cartItems.find((item) => item._id === id)
-    index = cartItems.findIndex((product) => product._id === id);
-    const newCartItems = cartItems.filter((item) => item._id !== id)
+  const toggleCartItemQuanitity = (product, value) => {
+    foundProduct = cartItems.find((item) => item._id === product._id && item.colorSelected === product.colorSelected)
+    index = cartItems.findIndex((item) => item._id === product._id && item.colorSelected === product.colorSelected);
+    const newCartItems = cartItems.filter((item) => item._id === product._id && item.colorSelected !== product.colorSelected)
 
-    if(value === 'inc') {
-      setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 } ]);
-      setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
+    if (value === 'inc') {
+      setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 }]);
+      setTotalPrice((prevTotalPrice) => parseFloat(prevTotalPrice) + parseFloat(product.price))
       setTotalQuantities(prevTotalQuantities => prevTotalQuantities + 1)
-    } else if(value === 'dec') {
+    } else if (value === 'dec') {
       if (foundProduct.quantity > 1) {
-        setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 } ]);
-        setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
+        setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 }]);
+        setTotalPrice((prevTotalPrice) => parseFloat(prevTotalPrice) - parseFloat(product.price))
         setTotalQuantities(prevTotalQuantities => prevTotalQuantities - 1)
       }
     }
@@ -71,8 +72,8 @@ export const StateContext = ({ children }) => {
 
   const decQty = () => {
     setQty((prevQty) => {
-      if(prevQty - 1 < 1) return 1;
-     
+      if (prevQty - 1 < 1) return 1;
+
       return prevQty - 1;
     });
   }
@@ -93,7 +94,7 @@ export const StateContext = ({ children }) => {
         onRemove,
         setCartItems,
         setTotalPrice,
-        setTotalQuantities 
+        setTotalQuantities
       }}
     >
       {children}

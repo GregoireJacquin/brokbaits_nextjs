@@ -51,12 +51,30 @@ const products = {
         {
             name: 'color',
             title: 'Color',
-            type: 'string',       
+           type:'array',
+           of: [
+             {
+              type: 'string', name: 'color',
+                options: {
+                 hotspot: true,
+                },
+             }
+           ]
         },
         {
             name: 'category',
             title: 'Category',
             type: 'string',       
+        },
+        {
+            name: 'colorSelected',
+            title: 'ColorSelected',
+            type: 'string',
+        },
+        {
+            name: 'imageSelected',
+            title: 'ImageSelected',
+            type: 'image',
         },
     ]
 }
