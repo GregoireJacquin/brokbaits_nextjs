@@ -19,7 +19,7 @@ const ProductDetails = ({ params }) => {
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
   const handleBuyNow = () => {
-    onAdd(dataProduct, qty);
+    onAdd(dataProduct, qty,index);
     setShowCart(true);
   }
   return (
