@@ -1,8 +1,5 @@
 import { getProducts } from '@/sanity/sanity-utils'
-import { PortableText } from '@portabletext/react'
-import { Product, Footer, Navbar } from './components/index'
-import client from '@/sanity/config/client-config';
-import Head from 'next/head';
+import { Product} from './components/index'
 
 export default async function Home() {
   const data = await getProducts();

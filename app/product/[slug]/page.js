@@ -63,7 +63,7 @@ const ProductDetails = ({ params }) => {
                   onMouseEnter={() => setIndex(i)}
                 />
                 <div className='items-center justify-center flex'>
-                  <h1>{color[i]}</h1>
+                  {color && <h1>{color[i]}</h1>}
                 </div>
               </div>
             ))}
