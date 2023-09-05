@@ -37,7 +37,7 @@ const Cart = () => {
         {cartItems.length < 1 && (
           <div className="empty-cart">
             <div className='items-center'>
-              <AiOutlineShopping className='text-[150px] my-auto'/>
+              <AiOutlineShopping className='text-[150px] mx-auto'/>
             </div>
             <h3>Votre panier est vide</h3>
             <Link href="/">
