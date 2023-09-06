@@ -8,7 +8,7 @@ const Product = ({product : {image,slug,price,title,name}}) => {
     <div>
       <Link href={`/product/${slug}`} key={slug}>
         <div className="hover:scale-110 duration-500">
-           <img src={urlFor(image[0]).url()} alt={name} className="w-[240px] mx-auto flex justify-center items-center rounded-lg bg-[#ebebeb]"/>
+           <img src={urlFor(image[0]).url()} alt={name} className="w-[240px] mx-auto flex justify-center items-center rounded-lg bg-[#f9f5f5]"/>
           <p className="font-medium">{title}</p>
           <p className="font-extrabold mt-0">{price}€</p>
         </div>
