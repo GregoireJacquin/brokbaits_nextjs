@@ -17,7 +17,7 @@ const Navbar = () => {
           <Link href='/' className='items-center'>
             <Image src={logo} alt="Logo" className='mx-auto pt-2 pb-2' width="200px" />
           </Link>
-          <div className="sm:hidden">
+          <div className="md:hidden lg:hidden">
             <button onClick={() => setIsOpen(!isOpen)} type="button" className="block text-gray-500 focus:outline-none left-4 absolute top-16">
               <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
                 {isOpen && <path d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" />}
@@ -39,7 +39,7 @@ const Navbar = () => {
         <a href="/" className="block px-2 py-1 text-base uppercase font-light text-gray-500 rounded hover:bg-gray-200">Produits</a>
         <a href="/about" className="mt-1 block px-2 py-1 text-base uppercase font-light text-gray-500 hover:bg-gray-200 sm:mt-0 sm:ml-2">A propos</a>
       </nav>
-      <div className='items-center justify-center gap-9 pb-4 hidden md:flex'>
+      <div className='items-center justify-center gap-9 pb-4 hidden md:flex lg:flex'>
         <Link href="/" className='text-base uppercase font-light text-gray-500'>Produits</Link>
         <Link href="/about" className='text-base uppercase font-light text-gray-500'>A propos</Link>
       </div>

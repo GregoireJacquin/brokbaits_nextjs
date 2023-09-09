@@ -24,6 +24,11 @@ const ProductDetails = ({ params }) => {
     onAdd(dataProduct, qty, index);
     setShowCart(true);
   }
+  const components = {
+    block: {
+      normal: ({children}) => <h1 className="text-sm">{children}</h1>,      
+    },
+  }
   return (
     <>
       <div>
@@ -37,7 +42,7 @@ const ProductDetails = ({ params }) => {
             <h1 className='font-extrabold text-3xl'>{title}</h1>
             <h4>Description: </h4>
             <div className='text-gray-800 font-semibold'>
-              <PortableText value={description} />
+              <PortableText value={description} components={components}/>
             </div>
             <p className="price">{price}€</p>
             <div className="flex gap-x-2 h-[36px] mt-5">
@@ -56,7 +61,7 @@ const ProductDetails = ({ params }) => {
                     className={i === index ? 'small-image selected-image' : 'small-image'}
                     onMouseEnter={() => setIndex(i)}
                   />
-                  <div className='items-center justify-center flex'>
+                  <div className='items-center justify-center flex text-xs'>
                     {color && <h1>{color[i]}</h1>}
                   </div>
                 </div>
