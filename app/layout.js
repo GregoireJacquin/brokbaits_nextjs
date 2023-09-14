@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
           <header>
             <Navbar />
           </header>
-          <main className='w-full m-auto max-w-[1400px] flex lg:h-screen'>
+          <main className='w-full m-auto max-w-[1400px] flex lg:h-screen justify-center'>
             <Toaster />
             {children}
           </main>
