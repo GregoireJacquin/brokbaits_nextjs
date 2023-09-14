@@ -22,14 +22,14 @@ export default function RootLayout({ children }) {
           <header>
             <Navbar />
           </header>
-          <main className='main-container min-h-[600px]'>
-            <Toaster/>
+          <main className='w-full m-auto max-w-[1400px] flex lg:h-screen'>
+            <Toaster />
             {children}
           </main>
-          <footer>
-            <Footer />
-          </footer>
         </StateContext>
+        <footer>
+          <Footer />
+        </footer>
       </body>
     </html>
   )

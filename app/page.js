@@ -9,7 +9,7 @@ export default async function Home() {
         <h2 className='font-extrabold text-4xl w-full'>Nos produits Brokbaits</h2>
         <p className='text-base font-light'>Vous trouverez de quoi vous satisfaire</p>
       </div>
-      <div className="flex flex-wrap justify-center gap-5 mt-0 w-full">
+      <div className="flex flex-wrap justify-center gap-5 mt-0 w-full min-h-screen">
         {data?.map((product) => <Product key={product._id} product={product} />)}
       </div>
     </div>

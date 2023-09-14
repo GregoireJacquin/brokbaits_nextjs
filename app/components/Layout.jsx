@@ -14,7 +14,7 @@ const Layout = () => {
       <header>
         <Navbar/>
       </header>
-      <main className='main-container'>
+      <main className='max-w-[1400px] m-auto w-full flex sm:h-0'>
         EMPTY
       </main>
       <footer>
