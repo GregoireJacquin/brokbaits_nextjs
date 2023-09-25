@@ -4,7 +4,7 @@ import imageUrlBuilder from '@sanity/image-url'
 
 export const getProducts = async () => {
   return createClient(client).fetch(
-    groq`*[_type == "products"] | order(_createdAt desc) {
+    groq`*[_type == "products"] | order(category asc) {
         _id,
         _createdAt,
         name,

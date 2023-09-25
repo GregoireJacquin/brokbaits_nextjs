@@ -2,7 +2,6 @@ import { urlFor } from '@/sanity/sanity-utils';
 import React from 'react'
 
 const Modal = ({ image, setShowModal }) => {
-    
     return (
         <>
             <div
