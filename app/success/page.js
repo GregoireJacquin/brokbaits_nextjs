@@ -27,8 +27,8 @@ const Success = () => {
         <p className="email-msg">Verifiez votre boite mail pour votre reçu.</p>
         <p className="description">
           Si vous avez une question veuillez contacter
-          <a className="email" href="mailto:conatct@brokbaits.fr">
-          conatct@brokbaits.fr
+          <a className="email" href="mailto:conatct@baikbaits.fr">
+          conatct@baikbaits.fr
           </a>
         </p>
         <Link href="/">

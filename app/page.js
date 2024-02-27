@@ -6,7 +6,7 @@ export default async function Home() {
   return (
     <div>
       <div className='text-center m-[40px] text-[#324d67] justify-center ' >
-        <h2 className='font-extrabold text-4xl w-full'>Nos produits Brokbaits</h2>
+        <h2 className='font-extrabold text-4xl w-full'>Nos produits Baikbaits</h2>
         <p className='text-base font-light'>Vous trouverez de quoi vous satisfaire</p>
       </div>
       <div className="flex flex-wrap justify-center gap-5 mt-0 w-full min-h-screen">

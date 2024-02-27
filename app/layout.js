@@ -8,7 +8,7 @@ import { StateContext } from './context/StateContext'
 import { Toaster } from 'react-hot-toast'
 
 export const metadata = {
-  title: 'Brokbaits',
+  title: 'Baikbaits',
 }
 
 export default function RootLayout({ children }) {
