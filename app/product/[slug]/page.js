@@ -35,7 +35,24 @@ const ProductDetails = ({ params }) => {
         <div className="product-detail-container">
           <div>
             <div className="image-container">
-              <img src={image && urlFor(image[index]).url()} className="product-detail-image" onClick={() => setShowModal(true)} />
+              <img src={image && urlFor(image[index]).url()} className="product-detail-image"
+                   onClick={() => setShowModal(true)}/>
+            </div>
+          </div>
+          <div className="md:hidden sm:block">
+            <div className="small-images-container">
+              {image?.map((item, i) => (
+                  <div key={i}>
+                    <img
+                        src={urlFor(item)}
+                        className={i === index ? 'small-image selected-image' : 'small-image'}
+                        onMouseEnter={() => setIndex(i)}
+                    />
+                    <div className='items-center justify-center flex text-xs'>
+                      {color && <h1>{color.length > 1 ? color[i] : []}</h1>}
+                    </div>
+                  </div>
+              ))}
             </div>
           </div>
           <div className="product-detail-desc">
@@ -48,27 +65,33 @@ const ProductDetails = ({ params }) => {
             <div className="flex gap-x-2 h-[36px] mt-5">
               <h1 className='mt-1 mr-2'>Quantité : </h1>
               <div className="flex flex-1 max-w-[100px] items-center h-full border font-medium">
-                <div className="flex-1 h-full flex items-center justify-center cursor-pointer text-[#f02d34]" onClick={decQty}><AiOutlineMinus /></div>
+                <div className="flex-1 h-full flex items-center justify-center cursor-pointer text-[#f02d34]"
+                     onClick={decQty}><AiOutlineMinus/></div>
                 <div className="flex h-full items-center justify-center px-2 select-none">{qty}</div>
-                <div className="flex-1 h-full flex items-center justify-center cursor-pointer text-[#31a831]" onClick={incQty}><AiOutlinePlus /></div>
+                <div className="flex-1 h-full flex items-center justify-center cursor-pointer text-[#31a831]"
+                     onClick={incQty}><AiOutlinePlus/></div>
               </div>
             </div>
-            <div className="small-images-container">
-              {image?.map((item, i) => (
-                <div key={i}>
-                  <img
-                    src={urlFor(item)}
-                    className={i === index ? 'small-image selected-image' : 'small-image'}
-                    onMouseEnter={() => setIndex(i)}
-                  />
-                  <div className='items-center justify-center flex text-xs'>
-                    {color && <h1>{color.length > 1 ? color[i] : []}</h1>}
-                  </div>
-                </div>
-              ))}
+            <div className="hidden lg:block">
+              <div className="small-images-container">
+                {image?.map((item, i) => (
+                    <div key={i}>
+                      <img
+                          src={urlFor(item)}
+                          className={i === index ? 'small-image selected-image' : 'small-image'}
+                          onMouseEnter={() => setIndex(i)}
+                      />
+                      <div className='items-center justify-center flex text-xs'>
+                        {color && <h1>{color.length > 1 ? color[i] : []}</h1>}
+                      </div>
+                    </div>
+                ))}
+              </div>
             </div>
             <div className="buttons">
-              <button type="button" className="add-to-cart select-none" onClick={() => onAdd(dataProduct, qty, index)}>Ajouter au panier</button>
+              <button type="button" className="add-to-cart select-none"
+                      onClick={() => onAdd(dataProduct, qty, index)}>Ajouter au panier
+              </button>
               <button type="button" className="buy-now select-none" onClick={handleBuyNow}>Acheter</button>
             </div>
           </div>
@@ -76,7 +99,7 @@ const ProductDetails = ({ params }) => {
         </div>
       </div>
       {showModal ? (
-        <Modal setShowModal={setShowModal} image={image[index]}/>
+          <Modal setShowModal={setShowModal} image={image[index]}/>
       ) : null}
     </>
   )
