@@ -1,5 +1,5 @@
 import React from 'react'
-import TextAndImage from "@/app/common/TextAndImage";
+import TextAndImage from "../common/TextAndImage";
 
 const About = () => {
   return (
