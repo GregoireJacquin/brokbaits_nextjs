@@ -39,7 +39,7 @@ const ProductDetails = ({ params }) => {
                    onClick={() => setShowModal(true)}/>
             </div>
           </div>
-          <div className="md:hidden sm:block">
+          <div className="lg:hidden sm:block">
             <div className="small-images-container">
               {image?.map((item, i) => (
                   <div key={i}>
