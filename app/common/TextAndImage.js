@@ -15,7 +15,7 @@ const TextAndImage = ({image,title,desciption,order}) => {
                             <p className="mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-200">
                                 {desciption}</p>
                         </div>
-                </div>
+                    </div>
             </div>
         </div>
     )
