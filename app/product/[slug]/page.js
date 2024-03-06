@@ -1,9 +1,9 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import { getProduct, urlFor } from '@/sanity/sanity-utils'
+import { getProduct, urlFor } from '../../../sanity/sanity-utils'
 import { PortableText } from '@portabletext/react'
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import { useStateContext } from '@/app/context/StateContext';
+import { useStateContext } from '../../../app/context/StateContext';
 import Modal from '@/app/components/Modal';
 
 

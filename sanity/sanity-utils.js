@@ -37,6 +37,14 @@ export const getProduct = async (slug) => {
     { slug }
   )
 }
+export const getImages = async () => {
+  return createClient(client).fetch(
+      groq`*[_type == "caroussel"] | order(slug asc) {
+        "slug": slug.current,
+        image,
+    }`
+  )
+}
 const builder = imageUrlBuilder(client);
 
 export const urlFor = (source) => {

@@ -1,8 +1,12 @@
 "use client"
 import { NextStudio } from 'next-sanity/studio';
-import config from '@/sanity.config';
+import config from '../../../sanity.config';
 
 const AdminPage = () => {
-  return <NextStudio config={config}/>
+  return (
+      <div className="flex w-auto">
+      <NextStudio config={config}/>
+      </div>
+  )
 }
 export default AdminPage
