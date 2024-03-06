@@ -1,9 +1,10 @@
-import { getProducts } from '../sanity/sanity-utils'
+import {getImages, getProducts} from '../sanity/sanity-utils'
 import { Product} from './components/index'
 import Carrousel from "@/app/common/Carrousel";
 
 export default async function Home() {
   const data = await getProducts();
+  const dataImage = await getImages()
   return (
     <div>
         <div className='text-center m-[40px] text-[#324d67] justify-center ' >
@@ -14,7 +15,7 @@ export default async function Home() {
             {data?.map((product) => <Product key={product._id} product={product} />)}
         </div>
         <div className="w-screen">
-            <Carrousel />
+            <Carrousel dataImages={dataImage[0].image}/>
         </div>
     </div>
   )
