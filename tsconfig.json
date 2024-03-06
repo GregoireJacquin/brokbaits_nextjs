@@ -25,7 +25,7 @@
     "paths": {
       "@/styles/*": ["styles/*"],
       "@/components/*": ["components/*"],
-      "@/sanity/*": ["app/sanity/*"],
+      "@/sanity/*": ["./sanity/*"],
       "@/app/*": ["app/*"],
     }
   },
