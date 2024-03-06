@@ -25,13 +25,3 @@ const caroussel = {
     ]
 }
 export default caroussel;
-
-/*
-Titre
-Prix
-Description
-Poids
-Couleur
-Stock
-Category
-*/

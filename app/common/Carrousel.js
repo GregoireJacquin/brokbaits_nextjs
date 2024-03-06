@@ -2,7 +2,7 @@
 
 import React, {useEffect, useState} from 'react'
 import 'react-alice-carousel/lib/alice-carousel.css';
-import {getImages, urlFor} from "../../sanity/sanity-utils";
+import {getImages, urlFor} from "@/sanity/sanity-utils";
 import AliceCarousel from "react-alice-carousel";
 
 const Carrousel = () => {

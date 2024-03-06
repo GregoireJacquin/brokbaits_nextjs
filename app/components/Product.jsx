@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { urlFor } from '../../sanity/sanity-utils';
+import { urlFor } from '@/sanity/sanity-utils';
 
 
 const Product = ({product : {image,slug,price,title,name}}) => {

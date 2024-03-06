@@ -22,10 +22,12 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
+      "@/*": ["./*"],
       "@/styles/*": ["styles/*"],
+      "@/sanity/*": ["sanity/*"],
       "@/components/*": ["components/*"],
-      "@/sanity/*": ["./sanity/*"],
       "@/app/*": ["app/*"],
     }
   },
