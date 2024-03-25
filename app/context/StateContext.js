@@ -52,7 +52,7 @@ export const StateContext = ({ children }) => {
     foundProduct = cartItems.find((item) => item._id === product._id && item.colorSelected === product.colorSelected)
     index = cartItems.findIndex((item) => item._id === product._id && item.colorSelected === product.colorSelected);
     
-    if (value === 'inc') {
+    if (value === 'inc' && foundProduct.quantity < 20) {
       const newCartItem = { ...foundProduct, quantity: foundProduct.quantity + 1 }
       cartItems[index] = newCartItem;
       setTotalPrice((prevTotalPrice) => parseFloat(prevTotalPrice) + parseFloat(product.price))

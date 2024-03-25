@@ -5,6 +5,7 @@ import { PortableText } from '@portabletext/react'
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { useStateContext } from '@/app/context/StateContext';
 import Modal from '@/app/components/Modal';
+import {data} from "autoprefixer";
 
 
 const ProductDetails = ({ params }) => {
@@ -19,7 +20,7 @@ const ProductDetails = ({ params }) => {
   const { image, price, title, description, color } = dataProduct || {};
   const [index, setIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
-  const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart,cartItems } = useStateContext();
   const handleBuyNow = () => {
     onAdd(dataProduct, qty, index);
     setShowCart(true);
@@ -28,6 +29,13 @@ const ProductDetails = ({ params }) => {
     block: {
       normal: ({children}) => <h1 className="text-sm">{children}</h1>,      
     },
+  }
+  const handleAddOn = () => {
+    const foundProduct = cartItems.find((item) => item._id === dataProduct._id && item.colorSelected === dataProduct.color[index])
+    if(foundProduct?.quantity + qty > 20)
+      alert(`Vous ne devez pas depasser les 20 produits, veuillez retirer ${(foundProduct.quantity + qty) - 20}`);
+    else
+      onAdd(dataProduct, qty, index)
   }
   return (
     <>
@@ -90,7 +98,7 @@ const ProductDetails = ({ params }) => {
             </div>
             <div className="buttons">
               <button type="button" className="add-to-cart select-none"
-                      onClick={() => onAdd(dataProduct, qty, index)}>Ajouter au panier
+                      onClick={() => handleAddOn()}>Ajouter au panier
               </button>
               <button type="button" className="buy-now select-none" onClick={handleBuyNow}>Acheter</button>
             </div>
