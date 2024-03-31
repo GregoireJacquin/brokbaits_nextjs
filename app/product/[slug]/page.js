@@ -33,7 +33,7 @@ const ProductDetails = ({ params }) => {
   const handleAddOn = () => {
     const foundProduct = cartItems.find((item) => item._id === dataProduct._id && item.colorSelected === dataProduct.color[index])
     if(foundProduct?.quantity + qty > 20)
-      alert(`Vous ne devez pas depasser les 20 produits, veuillez retirer ${(foundProduct.quantity + qty) - 20}`);
+      alert(`Vous ne devez pas depasser les 20 produits, veuillez réduire de ${(foundProduct.quantity + qty) - 20} votre quantité`);
     else
       onAdd(dataProduct, qty, index)
   }
