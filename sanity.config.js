@@ -11,6 +11,6 @@ const config = defineConfig({
     basePath: '/admin',
     plugins: [deskTool()],
     schema: {types: [products,caroussel]},
-    useCdn: false,
+    useCdn: true,
 })
 export default config;

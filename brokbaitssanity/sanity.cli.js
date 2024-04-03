@@ -4,6 +4,6 @@ export default defineCliConfig({
   api: {
     projectId: 'xsu91yf1',
     dataset: 'production',
-    useCdn: false,
+    useCdn: true,
   }
 })

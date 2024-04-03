@@ -11,7 +11,7 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],
-  useCdn: false,
+  useCdn: true,
 
   schema: {
     types: schemaTypes,
