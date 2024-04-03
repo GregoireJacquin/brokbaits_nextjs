@@ -4,7 +4,7 @@ import imageUrlBuilder from '@sanity/image-url'
 
 export const getProducts = async () => {
   return createClient(client).fetch(
-    groq`*[_type == "products"] | order(_createdAt asc) {
+    groq`*[_type == "products"] | order(_createdAt desc) {
         _id,
         _createdAt,
         name,
@@ -50,3 +50,5 @@ const builder = imageUrlBuilder(client);
 export const urlFor = (source) => {
   return builder.image(source)
 }
+
+export const dynamic = "force-dynamic";

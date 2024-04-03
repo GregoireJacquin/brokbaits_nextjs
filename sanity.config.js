@@ -10,6 +10,7 @@ const config = defineConfig({
     apiVersion: '2023-07-24',
     basePath: '/admin',
     plugins: [deskTool()],
-    schema: {types: [products,caroussel]}
+    schema: {types: [products,caroussel]},
+    useCdn: false,
 })
 export default config;
