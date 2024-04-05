@@ -2,9 +2,9 @@ import { createClient, groq } from 'next-sanity'
 import client from './config/client-config';
 import imageUrlBuilder from '@sanity/image-url'
 
-export const getProducts = async () => {
+export const getClothing = async () => {
   return createClient(client).fetch(
-    groq`*[_type == "products"] | order(_createdAt asc) {
+    groq`*[_type == "products" && category == "clothing" ] |order(_createdAt desc) {
         _id,
         _createdAt,
         name,
@@ -49,6 +49,37 @@ const builder = imageUrlBuilder(client);
 
 export const urlFor = (source) => {
   return builder.image(source)
+}
+export const getCategories = async () => {
+  return createClient(client).fetch(
+      groq`*[_type == "categories"] {
+      _id,
+      _createdAt,
+      name,
+      title,
+      "slug": slug.current,
+      image,
+      category,
+    }`
+  )
+}
+
+export const getBaits = async () => {
+  return createClient(client).fetch(
+      groq`*[_type == "products" && category == "baits" ] |order(_createdAt desc) {
+        _id,
+        _createdAt,
+        name,
+        title,
+        "slug": slug.current,
+        price,
+        quantity,
+        image,
+        description,
+        color,
+        category,
+    }`
+  )
 }
 
 export const dynamic = "force-dynamic";

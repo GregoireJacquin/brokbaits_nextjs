@@ -3,10 +3,10 @@ import Link from 'next/link'
 import { urlFor } from '@/sanity/sanity-utils';
 
 
-const Product = ({product : {image,slug,price,title,name}}) => {
+const Product = ({product : {image,slug,price,title,name,category}}) => {
   return (
     <div>
-      <Link href={`/product/${slug}`} key={slug}>
+      <Link href={`${category}/${slug}`} key={slug}>
         <div className="hover:scale-110 duration-500">
            <img src={urlFor(image[0]).url()} alt={name} className="w-[240px] mx-auto flex justify-center items-center rounded-lg bg-[#f9f5f5]"/>
           <p className="font-medium">{title}</p>
