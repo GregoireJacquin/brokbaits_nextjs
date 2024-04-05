@@ -68,6 +68,7 @@ export const StateContext = ({ children }) => {
   }
 
   const incQty = () => {
+    if(qty < 20)
     setQty((prevQty) => prevQty + 1);
   }
 

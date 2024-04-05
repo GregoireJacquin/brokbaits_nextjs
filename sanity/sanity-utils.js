@@ -52,7 +52,7 @@ export const urlFor = (source) => {
 }
 export const getCategories = async () => {
   return createClient(client).fetch(
-      groq`*[_type == "categories"] {
+      groq`*[_type == "categories"] | order(name desc) {
       _id,
       _createdAt,
       name,
