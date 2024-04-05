@@ -65,7 +65,7 @@ export const getCategories = async () => {
 }
 export const getBaits = async () => {
   return createClient(client).fetch(
-      groq`*[_type == "products" && category == "baits" ] |order(_createdAt desc) {
+      groq`*[_type == "products" && category == "baits" ] |order(_createdAt asc) {
         _id,
         _createdAt,
         name,
