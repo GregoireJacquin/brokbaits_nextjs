@@ -4,7 +4,7 @@ import { Product} from './../components/index'
 export default async function Clothing() {
     const data = await getBaits();
     return (
-        <div className="min-h-screen">
+            <div className="min-h-[75vh]">
             <div className='text-center m-[40px] text-[#324d67] justify-center '>
                 <h2 className='font-extrabold text-4xl w-full'>Leurres Baiks</h2>
                 <p className='text-base font-light'></p>
